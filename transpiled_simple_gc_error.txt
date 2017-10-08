@@ -1,0 +1,16 @@
+<--- Last few GCs --->
+
+  901682 ms: Scavenge 1398.2 (1454.0) -> 1398.2 (1454.0) MB, 0.2 / 0 ms (+ 2.7 ms in 1 steps since last GC) [allocation failure] [incremental marking delaying mark-sweep].
+  902368 ms: Mark-sweep 1398.2 (1454.0) -> 1393.4 (1454.0) MB, 686.0 / 0 ms (+ 4.0 ms in 2 steps since start of marking, biggest step 2.7 ms) [last resort gc].
+  902960 ms: Mark-sweep 1393.4 (1454.0) -> 1308.9 (1454.0) MB, 592.0 / 0 ms [last resort gc].
+
+
+<--- JS stacktrace --->
+
+==== JS stack trace =========================================
+
+Security context: 0x14f6e7fb4629 <JS Object>
+    2: writeOrBuffer(aka writeOrBuffer) [_stream_writable.js:~262] [pc=0x32451b68cf29] (this=0x14f6e7f041b9 <undefined>,stream=0x3e70f3ce8169 <a WriteStream with map 0x1119dc8278e1>,state=0x3e70f3cee389 <a WritableState with map 0x1119dc827621>,chunk=0x268ef9c8f299 <String[40]\: 22721909, 25.77821011673152, 1505435648\n>,encoding=0x14f6e7fbd739 <String[4]: utf8>,cb=0x3e70f3c785b9 <JS Function n...
+
+FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - process out of memory
+[1]    50209 abort      ./node_modules/.bin/babel-node transpiled.js

@@ -1,0 +1,28 @@
+<--- Last few GCs --->
+
+[49197:0x102801c00]    70309 ms: Mark-sweep 1408.4 (1459.5) -> 1408.4 (1443.5) MB, 4652.6 / 0.0 ms  (+ 0.0 ms in 0 steps since start of marking, biggest step 0.0 ms, walltime since start of marking 4653 ms) last resort
+[49197:0x102801c00]    74890 ms: Mark-sweep 1408.4 (1443.5) -> 1408.4 (1443.5) MB, 4580.6 / 0.0 ms  last resort
+
+
+<--- JS stacktrace --->
+
+==== JS stack trace =========================================
+
+Security context: 0xa265ee28799 <JSObject>
+    2: _writeGeneric [net.js:724] [bytecode=0x351e9ca87009 offset=160](this=0x351e9cabfd01 <WriteStream map = 0x10f4333e169>,writev=0x4028b802421 <false>,data=0x3ff58f2b41b1 <String[40]\: 3608649, 244.75221813460288, 1545105408\n>,encoding=0xa265ee390d9 <String[4]: utf8>,cb=0x351e9cae91a9 <JSBoundFunction (BoundTargetFunction 0x351e9cab27b9)>)
+    4: _write [net.js:779] [bytecode=0x351e9ca86c59 o...
+
+FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory
+ 1: node::Abort() [/Users/williamceskavich/.nvm/versions/node/v8.6.0/bin/node]
+ 2: node::FatalException(v8::Isolate*, v8::Local<v8::Value>, v8::Local<v8::Message>) [/Users/williamceskavich/.nvm/versions/node/v8.6.0/bin/node]
+ 3: v8::internal::V8::FatalProcessOutOfMemory(char const*, bool) [/Users/williamceskavich/.nvm/versions/node/v8.6.0/bin/node]
+ 4: v8::internal::Factory::NewStruct(v8::internal::InstanceType) [/Users/williamceskavich/.nvm/versions/node/v8.6.0/bin/node]
+ 5: v8::internal::Factory::NewTuple3(v8::internal::Handle<v8::internal::Object>, v8::internal::Handle<v8::internal::Object>, v8::internal::Handle<v8::internal::Object>) [/Users/williamceskavich/.nvm/versions/node/v8.6.0/bin/node]
+ 6: v8::internal::IC::ComputeHandler(v8::internal::LookupIterator*) [/Users/williamceskavich/.nvm/versions/node/v8.6.0/bin/node]
+ 7: v8::internal::StoreIC::UpdateCaches(v8::internal::LookupIterator*, v8::internal::Handle<v8::internal::Object>, v8::internal::Object::StoreFromKeyed) [/Users/williamceskavich/.nvm/versions/node/v8.6.0/bin/node]
+ 8: v8::internal::StoreIC::Store(v8::internal::Handle<v8::internal::Object>, v8::internal::Handle<v8::internal::Name>, v8::internal::Handle<v8::internal::Object>, v8::internal::Object::StoreFromKeyed) [/Users/williamceskavich/.nvm/versions/node/v8.6.0/bin/node]
+ 9: v8::internal::Runtime_StoreIC_Miss(int, v8::internal::Object**, v8::internal::Isolate*) [/Users/williamceskavich/.nvm/versions/node/v8.6.0/bin/node]
+10: 0xbd104f046fd
+11: 0xbd104ff3e6b
+12: 0xbd104fbf075
+[1]    49197 abort      node promises.js

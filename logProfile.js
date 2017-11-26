@@ -8,6 +8,7 @@ module.exports = function logProfile(timestamp, count, countAtLastMark, diff) {
   const oldSpaceStats = getSpaceStats(heapSpaceStats, 'old_space');
 
   const info = [
+    'PROFILE',
     timestamp,
     count,
     (count - countAtLastMark) / (diff / 1000),

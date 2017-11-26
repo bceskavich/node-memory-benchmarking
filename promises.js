@@ -5,7 +5,7 @@ function loop(times, lastMark, start, count = 0, countAtLastMark = 0) {
     const now = new Date();
     const diff = now - lastMark;
     if (count === 0) {
-      console.log('timestamp, total_iterations, iterations_per_second, resident_set_size, percent_heap_used, percent_new_space_used, percent_old_space_used');
+      console.log('event_type, timestamp, total_iterations, iterations_per_second, resident_set_size, percent_heap_used, percent_new_space_used, percent_old_space_used');
     } else if (diff >= 1000) {
       logProfile(now - start, count, countAtLastMark, diff);
       lastMark = now;

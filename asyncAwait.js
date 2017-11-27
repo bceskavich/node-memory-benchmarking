@@ -1,6 +1,6 @@
 const logProfile = require('./logProfile');
 
-async function loop(times, lastMark, start, count = 0) {
+async function loop(times, lastMark, count = 0) {
   console.log('==== BEGIN ====');
   console.log();
 
@@ -14,7 +14,7 @@ async function loop(times, lastMark, start, count = 0) {
     if (count === 0) {
       console.log('event_type, timestamp, total_iterations, iterations_per_second, resident_set_size, percent_heap_used, percent_new_space_used, percent_old_space_used');
     } else if (diff >= 1000) {
-      logProfile(now - start, count, countAtLastMark, diff);
+      logProfile(count, countAtLastMark, diff);
       lastMark = now;
       countAtLastMark = count;
     }
@@ -30,4 +30,4 @@ function iterate(count) {
   return Promise.resolve().then(() => count + 1);
 }
 
-loop(1000000000, new Date(), new Date());
+loop(1000000000, new Date());

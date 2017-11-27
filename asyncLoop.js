@@ -1,6 +1,6 @@
 const logProfile = require('./logProfile');
 
-function asyncLoop(times, lastMark, start, count, countAtLastMark, onComplete) {
+function asyncLoop(times, lastMark, count, countAtLastMark, onComplete) {
   const doLoop = (nextCount) => {
     if (nextCount === times) {
       onComplete();
@@ -10,7 +10,7 @@ function asyncLoop(times, lastMark, start, count, countAtLastMark, onComplete) {
       if (nextCount === 0) {
         console.log('event_type, timestamp, total_iterations, iterations_per_second, resident_set_size, percent_heap_used, percent_new_space_used, percent_old_space_used');
       } else if (diff >= 1000) {
-        logProfile(now - start, nextCount, countAtLastMark, diff);
+        logProfile(nextCount, countAtLastMark, diff);
         lastMark = now;
         countAtLastMark = nextCount;
       }
@@ -29,7 +29,7 @@ function loop(times, count = 0) {
   console.log();
 
   return new Promise((resolve, reject) => {
-    asyncLoop(times, new Date(), new Date(), count, count, err => {
+    asyncLoop(times, new Date(), count, count, err => {
       return err ? reject(err) : resolve();
     })
   }).then(() => {

@@ -2,13 +2,9 @@
 
 var loop = (function() {
   var _ref = _asyncToGenerator(
-    /*#__PURE__*/ regeneratorRuntime.mark(function _callee(
-      times,
-      lastMark,
-      start
-    ) {
+    /*#__PURE__*/ regeneratorRuntime.mark(function _callee(times, lastMark) {
       var count =
-        arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+        arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
       var now, diff, countAtLastMark;
       return regeneratorRuntime.wrap(
         function _callee$(_context) {
@@ -35,7 +31,7 @@ var loop = (function() {
                     "event_type, timestamp, total_iterations, iterations_per_second, resident_set_size, percent_heap_used, percent_new_space_used, percent_old_space_used"
                   );
                 } else if (diff >= 1000) {
-                  logProfile(now - start, count, countAtLastMark, diff);
+                  logProfile(count, countAtLastMark, diff);
                   lastMark = now;
                   countAtLastMark = count;
                 }
@@ -64,7 +60,7 @@ var loop = (function() {
     })
   );
 
-  return function loop(_x2, _x3, _x4) {
+  return function loop(_x2, _x3) {
     return _ref.apply(this, arguments);
   };
 })();
@@ -107,4 +103,4 @@ function iterate(count) {
   });
 }
 
-loop(1000000000, new Date(), new Date());
+loop(1000000000, new Date());

@@ -1,6 +1,6 @@
 const v8 = require('v8');
 
-module.exports = function logProfile(timestamp, count, countAtLastMark, diff) {
+module.exports = function logProfile(count, countAtLastMark, diff) {
   const usage = process.memoryUsage();
   const heapStats = v8.getHeapStatistics();
   const heapSpaceStats = v8.getHeapSpaceStatistics();
@@ -9,7 +9,7 @@ module.exports = function logProfile(timestamp, count, countAtLastMark, diff) {
 
   const info = [
     'PROFILE',
-    timestamp,
+    process.uptime() * 1000,
     count,
     (count - countAtLastMark) / (diff / 1000),
     usage.rss,

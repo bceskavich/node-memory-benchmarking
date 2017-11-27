@@ -1,5 +1,5 @@
 {
-  "name": "memory-tests",
+  "name": "node-memory-benchmarking",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Billy Ceskavich",

@@ -21,5 +21,3 @@ function processFile(inputFile) {
 
   rl.on('close', () => process.exit(0));
 }
-
-// processFile('./outputs/redux/async_await_untranspiled_trimmed.txt');
